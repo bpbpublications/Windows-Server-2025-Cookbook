@@ -1,0 +1,23 @@
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart  
+
+New-VMSwitch -Name "ExternalSwitch" -NetAdapterName "Ethernet" -AllowManagementOS $true 
+ 
+New-VMSwitch -Name "InternalSwitch" -SwitchType Internal  
+
+New-VMSwitch -Name "PrivateSwitch" -SwitchType Private  
+
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true  
+
+Get-VMNetworkAdapter -VMName <VMName>  
+
+Set-VMNetworkAdapter -MacAddressSpoofing On  
+
+Select-Object MacAddressSpoofing  
+
+New-VHD -Path "C:\VMs\NewDisk.vhdx" -SizeBytes 50GB -Dynamic
+  
+Add-VMHardDiskDrive -VMName "MyVM" -Path "C:\VMs\NewDisk.vhdx"  
+
+Resize-VHD -Path "C:\VMs\NewDisk.vhdx" -SizeBytes 100GB  
+
+Checkpoint-VM -Name <VMName>

@@ -1,0 +1,13 @@
+Set-ExecutionPolicy Bypass -Scope Process -Force  
+
+Get-ExecutionPolicy  
+
+Set-ExecutionPolicy AllSigned  
+
+choco install minikube  
+
+minikube start  
+
+kubectl get po -A  
+
+minikube dashboard

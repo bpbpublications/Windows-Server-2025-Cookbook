@@ -1,0 +1,25 @@
+Set-SmbShare –Name <ShareName> -EncryptData $true  
+
+Set-SmbServerConfiguration –EncryptData $true 
+ 
+New-SmbShare –Name <ShareName> -Path <Path> –EncryptData $true
+  
+Set-SmbServerConfiguration –RejectUnencryptedAccess $false 
+ 
+New-SelfSignedCertificate -CertStoreLocation Cert:\LocalMachine\My -DnsName "Remote"  
+
+$pwd = ConvertTo-SecureString -String "Password" -Force -AsPlainText  
+
+Export-PfxCertificate -Cert Cert:\LocalMachine\My\<Thumbprint> -FilePath C:\remote.pfx -Password $pwd
+  
+Update-LapsADSchema  
+
+Set-LapsPolicySetting  
+
+msinfo32  
+
+Edit group policy  
+
+DeviceGuard/ConfigureSystemGuardLaunch  
+
+Set-ItemProperty

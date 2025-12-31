@@ -1,0 +1,13 @@
+Install-WindowsFeature RemoteAccess  
+
+Install-WindowsFeature DirectAccess-VPN  
+
+Install-WindowsFeature Web-Application-Proxy  
+
+Install-WindowsFeature ADFS-Federation  
+
+netsh ras set vpnserver  
+
+Start-Service RemoteAccess  
+
+Add-DnsServerResourceRecordA

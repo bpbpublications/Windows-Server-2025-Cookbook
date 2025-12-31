@@ -1,0 +1,41 @@
+Install-WindowsFeature -Name DNS -IncludeManagementTools 
+ 
+Add-DnsServerResourceRecordA  
+
+Add-DnsServerResourceRecordAAAA  
+
+Add-DnsServerResourceRecordCName  
+
+Add-DnsServerResourceRecordPtr  
+
+Add-DnsServerPrimaryZone  
+
+Add-DnsServerSecondaryZone  
+
+Add-DnsServerStubZone  
+
+Add-DnsServerConditionalForwarderZone  
+
+Import-Module DNSServer  
+
+Get-DnsServerZone  
+
+Install-WindowsFeature -Name DHCP -IncludeManagementTools  
+
+Add-DhcpServerInDC  
+
+Add-DhcpServerv4Scope  
+
+Set-DhcpServerv4OptionValue  
+
+Add-DhcpServerv4Superscope  
+
+Add-DhcpServerv4Multiscope  
+
+Add-DhcpServerv4Failover  
+
+Add-DhcpServerv4Reservation  
+
+Get-DhcpServerv4Reservation  
+
+Import-Module DhcpServer

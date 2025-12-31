@@ -1,0 +1,17 @@
+Set-TimeZone
+  
+Set-ItemProperty 
+ 
+New-VM  
+
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All 
+ 
+Install-WindowsFeature 
+ 
+New-SmbShare  
+
+Set-SmbShare -Name <ShareName> -EncryptData $true 
+ 
+Set-SmbServerConfiguration -EncryptData $true  
+
+Set-SmbServerConfiguration -RejectUnencryptedAccess $false

@@ -1,0 +1,5 @@
+winrm qc -q  
+
+net stop wecsvc  
+
+net start wecsvc

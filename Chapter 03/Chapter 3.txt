@@ -1,0 +1,31 @@
+New-SelfSignedCertificate -CertStoreLocation Cert:\LocalMachine\My -DnsName "Remote"  
+
+$pwd = ConvertTo-SecureString -String "Password" -Force -AsPlainText  
+
+Export-PfxCertificate -Cert Cert:\LocalMachine\My\<Thumbprint> -FilePath C:\remote.pfx -Password $pwd  
+
+New-ADOrganizationalUnit -Name "Servers" 
+ 
+New-ADOrganizationalUnit -Name "Database" -Path 'OU=Servers,DC=wscookbook,DC=com' 
+ 
+New-ADUser -SamAccountName "jdoe" 
+ 
+New-ADUser -SamAccountName "jdoe" -Name "John Doe" -UserPrincipalName "jdoe@yourdomain.com" -Description "New employee" -Enabled $true -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force)  
+
+New-ADUser -SamAccountName "jdoe" -Path "OU=Employees,DC=yourdomain,DC=com" 
+ 
+Invoke-Command -ComputerName Server01, Server02 -ScriptBlock { Get-Process }  
+
+Enter-PSSession Server01  
+
+Exit-PSSession  
+
+Invoke-Command -ComputerName Server01, Server02 -ScriptBlock { Get-UICulture }  
+
+Restart-Computer -ComputerName Server01  
+
+Test-Connection -ComputerName Server01  
+
+Clear-EventLog -ComputerName Server01 -LogName "Application"  
+
+Get-Service -ComputerName Server01

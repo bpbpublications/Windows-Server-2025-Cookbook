@@ -1,0 +1,21 @@
+net stop certsvc  
+
+net start certsvc  
+
+certsrv.msc  
+
+New-CertificateRequest -DnsName "your.custom.hostname" -Template "templatename" -CertStoreLocation "Cert:\LocalMachine\My"  
+
+Submit-CertificateRequest -Request $CertReq -CA "YourCAName\CAInstance"  
+
+Get-Certificate -Request $CertReq 
+ 
+Install-Certificate -Certificate $IssuedCert -CertStoreLocation "Cert:\LocalMachine\My"  
+
+Get-ChildItem -Path "Cert:\LocalMachine\My" 
+ 
+Where-Object {$_.Subject -match "CN=your.custom.hostname"} 
+ 
+Set-ExecutionPolicy Bypass -Scope Process -Force  
+
+CNGHashAlgorithm = SHA256

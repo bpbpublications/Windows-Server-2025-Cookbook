@@ -1,0 +1,45 @@
+Install-WindowsFeature -Name FS-FileServer  
+
+Install-WindowsFeature -Name FS-Resource-Manager  
+
+Install-WindowsFeature -Name FS-Data-Deduplication  
+
+Install-WindowsFeature -Name FS-iSCSITarget-Server  
+
+Install-WindowsFeature -Name FS-DFS-Namespace  
+
+Install-WindowsFeature -Name FS-DFS-Replication  
+
+New-SmbShare  
+
+New-IscsiVirtualDisk  
+
+New-IscsiServerTarget  
+
+Set-IscsiServerTarget 
+ 
+Enable-DedupVolume  
+
+New-StoragePool  
+
+New-VirtualDisk  
+
+New-Volume  
+
+New-DfsnRoot  
+
+New-DfsnFolder  
+
+New-DfsReplicationGroup 
+ 
+Add-DfsrMember  
+
+Add-DfsrConnection  
+
+Set-FsrmQuota  
+
+Set-FsrmFileScreen  
+
+New-FsrmClassificationProperty
+  
+New-FsrmFileManagementJob

@@ -1,0 +1,19 @@
+gpupdate /force  
+
+gpresult /r  
+
+gpresult /h C:\gpresult.html  
+
+Backup-GPO -Name "YourGPOName" -Path "C:\BackupFolder" 
+ 
+Restore-GPO -Name "YourGPOName" -Path "C:\BackupFolder" 
+ 
+Get-GPO -All  
+
+Get-GPRegistryValue  
+
+Import-Module GroupPolicy  
+
+Import-GPO -BackupId "YourBackupID" -Path "C:\ADMXFiles"  
+
+SELECT * FROM Win32_OperatingSystem WHERE Version LIKE "10.%" AND ProductType="1"

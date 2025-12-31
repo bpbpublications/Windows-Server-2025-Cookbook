@@ -1,0 +1,79 @@
+Set-ExecutionPolicy Bypass -Scope Process -Force 
+ 
+Get-ExecutionPolicy  
+
+Set-ExecutionPolicy AllSigned 
+ 
+choco install minikube  
+
+minikube start  
+
+kubectl get po -A  
+
+minikube dashboard  
+
+hostnamectl  
+
+ip add  
+
+ip link  
+
+sudo cat /sys/class/dmi/id/product_uuid  
+
+cat <<EOF> /etc/hosts  
+
+sudo modprobe overlay 
+ 
+sudo modprobe br_netfilter
+  
+echo "br_netfilter"  
+
+sudo tee -a /etc/modules  
+
+sudo vi /etc/sysctl.conf  
+
+sudo sysctl -p  
+
+sudo apt update  
+
+sudo apt upgrade -y  
+
+sudo swapoff -a  
+
+sudo vi /etc/fstab  
+
+sudo apt install -y apt-transport-https ca-certificates  
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg  
+
+sudo apt-key add -  
+
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" 
+ 
+sudo apt install -y containerd.io 
+ 
+sudo rm /etc/containerd/config.toml 
+ 
+sudo systemctl daemon-reload  
+
+sudo systemctl restart containerd  
+
+sudo apt install -y kubelet kubeadm kubectl kubernetes-cni  
+
+sudo kubeadm init  
+
+mkdir -p $HOME/.kube  
+
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config  
+
+sudo chown $(id -u):$(id -g) $HOME/.kube/config  
+
+kubectl get nodes -o wide  
+
+kubectl get pod -n kube-system  
+
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4 
+ 
+kubectl expose deployment hello-node --type=NodePort --port=8080  
+
+kubectl get services

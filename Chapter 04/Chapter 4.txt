@@ -1,0 +1,11 @@
+Get-ExecutionPolicy 
+ 
+Set-ExecutionPolicy Unrestricted  
+
+Get-WindowsFeature  
+
+Get-WindowsFeature -ComputerName Server1  
+
+Install-WindowsFeature -Name DNS -ComputerName Server1 -Restart 
+ 
+Uninstall-WindowsFeature -Name DNS -ComputerName Server1 -Restart

@@ -1,0 +1,21 @@
+Install-Module -Name docker -ProviderName DockerMsftProvider -Force  
+
+Install-Package -Name docker -ProviderName DockerMsftProvider -Force  
+
+docker version  
+
+docker pull mcr.microsoft.com/windows/servercore:ltsc2025  
+
+docker run -it mcr.microsoft.com/windows/servercore:ltsc2025 cmd 
+ 
+docker build -t my-windows-image .  
+
+docker run -it my-windows-image cmd  
+
+docker ps  
+
+docker stop <container_id>  
+
+docker rm <container_id>  
+
+docker logs <container_id>

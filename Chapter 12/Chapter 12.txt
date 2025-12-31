@@ -1,0 +1,21 @@
+Install-WindowsFeature Windows-Server-Backup  
+
+Import-Module WindowsServerBackup  
+
+$Policy = New-BackupPolicy  
+
+Get-BackupDisk  
+
+New-BackupTarget -Disk (Get-BackupDisk)[1] -Label "FullBackup" 
+ 
+Add-BackupTarget -Policy $Policy -Target $BackupDisk  
+
+Get-BackupVolume -AllVolumes  
+
+Add-BackupVolume -Policy $Policy -Volume $Volume  
+
+$Schedule = [DateTime]"2024-05-27 04:00:00"  
+
+Set-BackupSchedule -Policy $Policy -Schedule $Schedule  
+
+Set-BackupPolicy -Policy $Policy
